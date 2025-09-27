@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faça seu Agendamento - STUDIO BEAUTY</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="form-container">
+        
+        <a href="index.html" class="back-link">&larr; Voltar para o Início</a>
+
+        <h2>Marque seu Horário</h2>
+        <p>Preencha os dados abaixo e envie para agendar.</p>
+        
+        <form id="agendamento-form">
+            <label for="nome">Seu Nome:</label>
+            <input type="text" id="nome" required>
+
+            <label for="servico">Escolha o Serviço:</label>
+            
+            <select id="servico" required>
+                <option value="" disabled selected>Selecione um serviço...</option>
+                <option value="Brow Lamination">Brow Lamination - 1h (R$ 80,00)</option>
+                <option value="Design de Sobrancelha Personalizado">Design Personalizado - 40min (R$ 25,00)</option>
+                <option value="Design Simples">Design de Sobrancelha Simples - 30min (R$ 20,00)</option>
+                <option value="Maquiagem Infantil">Maquiagem Infantil - 40min (R$ 40,00)</option>
+                <option value="Maquiagem Social">Maquiagem Social - 1h (R$ 60,00)</option>
+                <option value="Maquiagem Profissional com Cílios">Maquiagem Profissional com Cílios - 1h+ (R$ 75,00)</option>
+            </select>
+            <label for="data">Escolha a Data:</label>
+            <input type="date" id="data" required>
+
+            <label for="hora">Escolha a Hora:</label>
+            <input type="time" id="hora" required>
+
+            <button type="submit" class="btn btn-primary">Agendar via WhatsApp</button>
+        </form>
+    </div>
+
+    <script src="js/agendamento.js"></script>
+</body>
+</html>

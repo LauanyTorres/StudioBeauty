@@ -1,0 +1,201 @@
+/* Definição da nossa paleta de cores e fontes */
+:root {
+    --cor-rose-claro: #F7CAC9;
+    --cor-branca: #FFFFFF;
+    --cor-texto: #4E4E4E;
+    --font-principal: 'Montserrat', sans-serif;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-principal);
+    color: var(--cor-branca); /* Texto principal será branco para contrastar com o fundo */
+    overflow: hidden; /* Impede a barra de rolagem */
+    
+    /* Flexbox para centralizar o conteúdo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* A MÁGICA DO FUNDO DESFOCADO */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* SUBSTITUA 'fundo-salao.jpg' PELO NOME DA SUA IMAGEM */
+    background-image: url('../assets/images/fotoprinc.jpeg');
+    background-size: cover;
+    background-position: center;
+    
+    /* O efeito de desfoque (blur) */
+    filter: blur(4px);
+    
+    /* Adiciona uma camada escura para melhorar a leitura do texto */
+    background-color: rgba(0, 0, 0, 0.3);
+    
+    /* Garante que o fundo fique atrás de todo o conteúdo */
+    z-index: -1;
+}
+
+
+/* ESTILO DO CONTEÚDO CENTRAL */
+.content-center {
+    text-align: center;
+    padding: 20px;
+}
+
+.content-center h1 {
+    font-size: 3.5em; /* Tamanho grande para o título */
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra para legibilidade */
+}
+
+.content-center p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Sombra para legibilidade */
+}
+
+
+/* ESTILO DOS BOTÕES */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaço entre os botões */
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 2px solid var(--cor-branca);
+    border-radius: 50px; /* Bordas arredondadas */
+    text-decoration: none;
+    color: var(--cor-branca);
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: all 0.3s ease; /* Efeito suave na transição */
+}
+
+.btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Estilo de destaque para o botão principal */
+.btn.btn-primary {
+    background-color: var(--cor-rose-claro);
+    border-color: var(--cor-rose-claro);
+    color: var(--cor-texto);
+}
+
+.btn.btn-primary:hover {
+    background-color: var(--cor-branca);
+    border-color: var(--cor-branca);
+}
+
+/* ============================================== */
+/* === ESTILOS DA PÁGINA DE AGENDAMENTO === */
+/* ============================================== */
+
+/* Ajuste no body para permitir rolagem caso o formulário seja grande */
+body {
+    overflow-y: auto; /* Permite a rolagem vertical */
+    padding: 40px 0; /* Adiciona um espaço no topo e na base */
+}
+
+/* O "card" flutuante do formulário */
+.form-container {
+    max-width: 500px;
+    width: 90%;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.95); /* Fundo branco semi-transparente */
+    color: var(--cor-texto); /* Texto escuro para contraste */
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    text-align: left;
+}
+
+.form-container h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.form-container p {
+    text-align: center;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+/* Estilos para os campos do formulário (labels, inputs) */
+#agendamento-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+#agendamento-form input,
+#agendamento-form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+    font-family: var(--font-principal);
+    background-color: #f9f9f9;
+}
+
+/* Estilo para o botão de enviar, usando as classes que já criamos */
+#agendamento-form button {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+/* Link de "Voltar" */
+.back-link {
+    display: inline-block;
+    margin-bottom: 30px;
+    color: var(--cor-texto);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* ============================================== */
+/* ===         ESTILOS DA GALERIA           === */
+/* ============================================== */
+
+#carousel-container {
+    margin-top: 40px; /* Espaço entre os botões e a galeria */
+    max-width: 400px; /* Largura máxima da galeria */
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 10px;
+    overflow: hidden; /* Garante que a imagem não saia das bordas arredondadas */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+#carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    transition: opacity 0.7s ease-in-out; /* Efeito de transição suave (fade) */
+}
